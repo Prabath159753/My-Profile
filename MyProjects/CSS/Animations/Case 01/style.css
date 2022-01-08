@@ -1,0 +1,47 @@
+/**
+  * @ author : Kavishka Prabath
+  * @ since : 0.1.0
+**/
+
+section {
+    margin-top: 50px;
+    position: relative;
+    height: 95px;
+    width: 170px;
+    border-radius: 20px;
+    animation: animate;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes animate {
+    0% {
+        left: 0;
+        top: 0;
+        background-color: blue;
+    }
+    35% {
+        left: 1150px;
+        top: 0;
+        background-color: yellow;
+        transform: rotate(360deg);
+    }
+    50% {
+        left: 1150px;
+        top: 450px;
+        background-color: red;
+        transform: rotate(540deg);
+    }
+    90% {
+        left: 0;
+        top: 450px;
+        background-color: deeppink;
+        transform: rotate(180deg);
+    }
+    100% {
+        left: 0;
+        top: 0;
+        background-color: darkorange;
+    }
+}
