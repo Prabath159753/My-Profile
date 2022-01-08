@@ -1,0 +1,147 @@
+/**
+  * @ author : Kavishka Prabath
+  * @ since : 0.1.0
+**/
+
+/* header start */
+header {
+    position: relative;
+    height: 80px;
+    background: white;
+    box-shadow: 1px 2px 7px 4px #bfa0a0d6;
+}
+
+/* image */
+header > img {
+    width: 213px;
+    margin: 21px;
+}
+
+/* unordered list (menu) */
+header > ul {
+    position: absolute;
+    font-size: 24px;
+    right: 30px;
+    bottom: 0;
+    list-style: none;
+    font-family: 'Lobster', cursive;
+    color: #4a3a3a;
+}
+
+header > ul > li {
+    display: inline-block;
+    padding: 0 10px 0 10px;
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+header > ul > li:hover {
+    cursor: pointer;
+    color: red;
+}
+
+header > ul > li > i {
+    margin-right: 5px;
+}
+
+/*---------------------------------------*/
+
+body > main {
+    position: relative;
+}
+
+/* navigation */
+body > main > nav {
+    width: 270px;
+    background-color: #4d1da7;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}
+
+main > nav > ul {
+    list-style: none;
+    font-size: 25px;
+    margin-top: 39px;
+}
+
+main > nav > ul > li {
+    padding-bottom: 30px;
+    font-family: 'Lobster', cursive;
+    color: white;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+main > nav > ul > li > a {
+    text-decoration: none;
+    color: #f3f1f1;
+    padding-bottom: 4px;
+    margin-left: 13px;
+}
+
+/*main > nav > ul > li:hover {*/
+/*    cursor: pointer;*/
+/*    color: red;*/
+/*}*/
+
+main > nav > ul > li > i {
+    color: white;
+    cursor: pointer;
+    padding-right: 10px;
+}
+
+main > section {
+    margin-left: 270px;
+    padding: 10px;
+    min-height: 587px;
+}
+
+/* main> section content started */
+main > section > section {
+    height: 350px;
+    position: relative;
+}
+
+main > section > section > img {
+    position: absolute;
+    border: 5px solid white;
+    height: 100%;
+    width: calc(100% / 3);
+}
+
+main > section > section > img:nth-child(1) {
+    border-right: 5px solid white;
+    left: 0;
+    background-size: cover;
+}
+
+main > section > section > img:nth-child(2) {
+    border-left: 5px solid white;
+    left: calc(100% / 3);
+    background-size: cover;
+}
+
+main > section > section > img:nth-child(3) {
+    left: calc((100% / 3) * 2);
+    border-left: 5px solid white;
+    background-size: cover;
+}
+
+main > section > p {
+    font-family: 'Ubuntu', sans-serif;
+    color: black;
+}
+
+/* footer started */
+body > footer {
+    height: 40px;
+    background-color: dimgray;
+}
+footer > p {
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 0;
+}

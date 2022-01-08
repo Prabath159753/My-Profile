@@ -1,0 +1,94 @@
+/**
+  * @ author : Kavishka Prabath
+  * @ since : 0.1.0
+**/
+
+body > section:nth-child(1) {
+    position: relative;
+    height: 100vh;
+    z-index: 2;
+}
+
+/* fixed circle */
+body > section:nth-child(1) > div:nth-child(1) {
+    position: fixed;
+    border: 20px solid #8b8181;
+    height: 380px;
+    width: 380px;
+    border-radius: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* fixed circle */
+body > section:nth-child(1) > div:nth-child(2) {
+    position: fixed;
+    border: 20px solid red;
+    width: 340px;
+    height: 340px;
+    border-radius: 100%;
+    left: 50%;
+    top: 50%;
+    z-index: 10;
+    transform: translate(-50%, -50%);
+}
+
+/* text 1 circle */
+body > section:nth-child(2) > div {
+    position: absolute;
+    background: #7f46a0;
+    height: 342px;
+    width: 342px;
+    border-radius: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* text 2 circle */
+body > section:nth-child(3) {
+    position: relative;
+    height: 100vh;
+}
+
+body > section:nth-child(3) > div {
+    position: absolute;
+    background: #10aaf1;
+    height: 342px;
+    width: 342px;
+    border-radius: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* text 2 circle */
+body > section:nth-child(4) {
+    position: relative;
+    height: 100vh;
+}
+
+body > section:nth-child(4) > div {
+    position: absolute;
+    background: orange;
+    height: 342px;
+    width: 342px;
+    border-radius: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+body > section > div > p {
+    position: absolute;
+    font-size: 50px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-family: ui-monospace;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin: auto;
+}
