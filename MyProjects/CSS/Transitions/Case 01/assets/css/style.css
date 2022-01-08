@@ -1,0 +1,50 @@
+/**
+  * @ author : Kavishka Prabath
+  * @ since : 0.1.0
+**/
+
+section {
+    width: 228px;
+    height: 492px;
+    top: 91px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+section > div {
+    height: 40px;
+    width: 100%;
+    position: relative;
+    background: #1d33ab;
+    color: white;
+    box-shadow: 1px 2px 3px 2px #3a483b;
+    margin-left: -174px;
+    transition: all 2s;
+}
+
+section > div > h3 {
+    position: absolute;
+    margin: 0;
+    display: inline-block;
+    padding: 10px;
+    font-family: serif;
+    font-weight: bold;
+    font-size: 22px;
+    left: 20px;
+}
+
+section > div > i {
+    position: absolute;
+    right: 10px;
+    top: 7px;
+    font-size: 28px;
+}
+
+section>div:hover {
+    background: red;
+    margin-left: 0px;
+    cursor: pointer;
+    transition: all 2s;
+}
