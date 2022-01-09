@@ -208,11 +208,18 @@ section .title::after{
 
 /* about section styling */
 .about{
-    background-color: #616161;
+    background-color: #313135;
+}
+.about .title{
+    color: white;
+}
+.about .title::before,
+.about .title::before{
+    background: white;
 }
 .about .title::after{
     content: "who i am";
-    background: #616161;
+    background: #313135;
 }
 .about .about-content .left{
     width: 45%;
@@ -261,6 +268,10 @@ section .title::after{
 }
 .contact .title{
     color: white;
+}
+.contact .title::before,
+.contact .title::before{
+    background: white;
 }
 .contact .title::after{
     content: "contact me";
@@ -412,6 +423,96 @@ section .title::after{
     font-weight: 500;
     margin: 10px 0 7px 0;
     padding-bottom: 10px;
+}
+
+/* skills section styling */
+
+.skills{
+    background-color: #111;
+}
+.skills .title{
+    color: white;
+}
+.skills .title::before,
+.teams .title::before{
+    background: #fff;
+}
+.skills .title::after{
+    content: "what i know";
+    background-color: #111;
+}
+.skills .skills-content .column{
+    width: calc(50% - 30px);
+    color: white;
+}
+.skills .skills-content .left .text{
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.skills .skills-content .left p{
+    text-align: justify;
+    padding-right: 150px;
+    font-size: 20px;
+}
+.skills .skills-content .left a{
+    display: inline-block;
+    background: orange;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 8px 16px;
+    margin-top: 20px;
+    border-radius: 6px;
+    border: 2px solid orange;
+    transition: all 0.3s ease;
+}
+.skills .skills-content .left a:hover{
+    color: orange;
+    background: none;
+}
+.skills .skills-content .right .bars{
+    margin-bottom: 15px;
+}
+.skills .skills-content .right .info{
+    display: flex;
+    margin-bottom: 5px;
+    align-items: center;
+    justify-content: space-between;
+}
+.skills .skills-content .right span{
+    font-weight: 500;
+    font-size: 18px;
+    color: white;
+}
+.skills .skills-content .right .line{
+    height: 5px;
+    width: 100%;
+    background: lightgrey;
+    position: relative;
+}
+.skills .skills-content .right .line::before{
+    content: "";
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: orange;
+}
+.skills-content .right .html::before{
+    width: 80%;
+}
+.skills-content .right .css::before{
+    width: 60%;
+}
+.skills-content .right .js::before{
+    width: 80%;
+}
+.skills-content .right .php::before{
+    width: 50%;
+}
+.skills-content .right .mysql::before{
+    width: 70%;
 }
 
 
