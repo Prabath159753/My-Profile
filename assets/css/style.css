@@ -515,6 +515,184 @@ section .title::after{
     width: 70%;
 }
 
+/* education section styling */
+.education, .teams{
+    color:#fff;
+    background: #313135;
+}
+.education .title::before,
+.teams .title::before{
+    background: #fff;
+}
+.education .title::after,
+.teams .title::after{
+    background: #313135;
+    content: "what i learn";
+}
+
+.wrapper{
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 0 10px;
+    position: relative;
+}
+.wrapper .center-line{
+    position: absolute;
+    height: 100%;
+    width: 4px;
+    background: #fff;
+    left: 50%;
+    top: 20px;
+    transform: translateX(-50%);
+}
+.wrapper .row{
+    display: flex;
+}
+.wrapper .row-1{
+    justify-content: flex-start;
+}
+.wrapper .row-2{
+    justify-content: flex-end;
+}
+.wrapper .row section{
+    background: #fff;
+    border-radius: 5px;
+    width: calc(50% - 40px);
+    padding: 15px;
+    position: relative;
+}
+.wrapper .row section::before{
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    background: #fff;
+    top: 28px;
+    z-index: -1;
+    transform: rotate(45deg);
+}
+.wrapper .row section:hover{
+    transform: scale(0.97);
+}
+.row-1 section::before{
+    right: -7px;
+}
+.row-2 section::before{
+    left: -7px;
+}
+.row section .icon,
+.center-line .scroll-icon{
+    position: absolute;
+    background: #f2f2f2;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #ff7979;
+    font-size: 17px;
+    box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0,0,0,0.08), 0 3px 0 4px rgba(0,0,0,0.05);
+}
+.center-line .scroll-icon{
+    bottom: 0;
+    left: 50%;
+    font-size: 25px;
+    transform: translateX(-50%);
+}
+.row-1 section .icon{
+    top: 15px;
+    right: -60px;
+}
+.row-2 section .icon{
+    top: 15px;
+    left: -60px;
+}
+.row section .details{
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+.row section .bottom{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.row section .details .coursetitle{
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    color: #000000;
+}
+.row section p{
+    margin: 10px 0 17px 0;
+    text-align: center;
+    color: #000000;
+    font-family: 'Poppins', sans-serif;
+}
+.row section .bottom i{
+    text-decoration: none;
+    text-align: center;
+    color: #534d4d;
+    font-weight: 400;
+}
+.text-center{
+    text-align: center!important;
+}
+.text-right{
+    text-align: right!important;
+}
+.portfolio{
+    background-color: white;
+    padding: 100px 7px;
+}
+.portfolio .filter-buttons{
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+.portfolio .filter-buttons ul{
+    list-style: none;
+    text-align: center;
+    padding: 0;
+}
+.portfolio .filter-buttons ul li{
+    color: #000000;
+    font-weight: 500;
+    font-size: 16px;
+    display: inline-block;
+    margin: 0px 8px;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding-bottom: 0px;
+}
+.portfolio .filter-buttons ul li.active{
+    color: #febd01;
+    border-bottom: 2px solid #febd01;
+}
+.portfolio .portfolio-gallery{
+    flex: 0 0 100%;
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.portfolio .portfolio-gallery .item{
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+    position: relative;
+    padding: 8px;
+}
+.portfolio .portfolio-gallery .item .inner{
+    position: relative;
+}
+.portfolio .portfolio-gallery .item img{
+    width: 100%;
+    display: block;
+}
+
+
+
+
+
 
 
 *,body, html{
