@@ -689,7 +689,86 @@ section .title::after{
     display: block;
 }
 
+/* project section styling */
+.project, .teams{
+    color:#fff;
+    background: #111;
+}
+.project .title::before,
+.teams .title::before{
+    background: #fff;
+}
+.project .title::after,
+.teams .title::after{
+    background: #111;
+    content: "what i provide";
+}
+.project .filter-buttons{
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+.project .filter-buttons ul{
+    list-style: none;
+    text-align: center;
+    padding: 0;
+}
+.project .filter-buttons ul li{
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+    display: inline-block;
+    margin: 0 8px;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding-bottom: 0;
+}
+.project .filter-buttons ul li.active{
+    color: orange;
+    border-bottom: 2px solid orange;
+}
 
+
+.project .project-gallery{
+    flex: 0 0 100%;
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.project .project-gallery .item{
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+    position: relative;
+    padding: 8px;
+}
+.project .project-gallery .item .inner{
+    position: relative;
+}
+.project .project-gallery .item img{
+    width: 100%;
+    display: block;
+    padding: 20px 20px;
+}
+.project .project-gallery .item img:hover{
+    position: relative;
+    padding: 8px;
+}
+.btn{
+    background: orange;
+    border-radius: 15px;
+    padding: 0 30px;
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+    border: 1px solid transparent;
+    transition: all 0.4s ease;
+    transform: translate(85px, 6px);
+}
+.btn:hover{
+    background: transparent;
+    color: orange;
+    border: 1px solid orange;
+}
 
 
 
