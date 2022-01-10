@@ -771,7 +771,62 @@ section .title::after{
 }
 
 
+/* experience section styling */
+.experience, .teams{
+    color:#fff;
+    background: #313135;
+}
+.experience .title::before,
+.teams .title::before{
+    background: #fff;
+}
+.experience .title::after,
+.teams .title::after{
+    background: #313135;
+    content: "what i provide";
+}
 
+.ex-container{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.ex-container > .box-3{
+    display: flex;
+    align-items: center;
+    width: 50%;
+    padding: 40px 20px;
+}
+.ex-container > .box-3:nth-child(1){
+    justify-content: flex-start;
+    /* border-right:2px dashed ; */
+
+}
+.ex-container > .box-3:nth-child(2){
+    justify-content: flex-end;
+    /* border-top:2px dashed ;
+    border-left:2px dashed ; */
+}
+.ex-box{
+    padding: 20px;
+    width: 100%;
+    background-color: orange;
+}
+.more-info{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+.more-info > button{
+    border: none;
+    border-radius: 20px;
+    background-color: orange;
+    color: #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+}
 
 
 *,body, html{
