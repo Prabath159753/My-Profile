@@ -16,6 +16,21 @@ html{
     scroll-behavior: smooth;
 }
 
+/* custom scroll bar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
 /* all similar content styling codes */
 section{
     padding: 100px 0;
@@ -25,7 +40,7 @@ section{
     padding: 0 80px;
     margin: auto;
 }
-.about, .services, .skills, .teams, .contact, footer{
+.about, .services, .skills, .education, .experience, .contact, footer{
     font-family: 'Poppins', sans-serif;
 }
 .about .about-content,
@@ -66,8 +81,6 @@ section .title::after{
     background: #fff;
     transform: translateX(-50%);
 }
-
-
 
 /* navbar styling */
 .navbar{
@@ -118,10 +131,47 @@ section .title::after{
     color: #fff;
 }
 
+/* menu btn styling */
+.menu-btn{
+    color: #fff;
+    font-size: 23px;
+    cursor: pointer;
+    display: none;
+}
+.scroll-up-btn{
+    position: fixed;
+    height: 45px;
+    width: 42px;
+    background: orange;
+    right: 30px;
+    bottom: 10px;
+    text-align: center;
+    line-height: 45px;
+    color: #fff;
+    z-index: 9999;
+    font-size: 30px;
+    border-radius: 6px;
+    border-bottom-width: 2px;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+.scroll-up-btn.show{
+    bottom: 30px;
+    opacity: 1;
+    pointer-events: auto;
+}
+.scroll-up-btn:hover{
+    filter: brightness(90%);
+}
+
+/* -------------------------------------------------------------------------- */
+
 /* home section styling */
 .home{
     display: flex;
-    /*background: url("images/banner.jpg") no-repeat center;*/
+    /* background: url("images/banner.jpg") no-repeat center; */
     background-color: #111;
     height: 100vh;
     color: #fff;
@@ -170,45 +220,11 @@ section .title::after{
     background: none;
 }
 
-
-/* menu btn styling */
-.menu-btn{
-    color: #fff;
-    font-size: 23px;
-    cursor: pointer;
-    display: none;
-}
-.scroll-up-btn{
-    position: fixed;
-    height: 45px;
-    width: 42px;
-    background: orange;
-    right: 30px;
-    bottom: 10px;
-    text-align: center;
-    line-height: 45px;
-    color: #fff;
-    z-index: 9999;
-    font-size: 30px;
-    border-radius: 6px;
-    border-bottom-width: 2px;
-    cursor: pointer;
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.3s ease;
-}
-.scroll-up-btn.show{
-    bottom: 30px;
-    opacity: 1;
-    pointer-events: auto;
-}
-.scroll-up-btn:hover{
-    filter: brightness(90%);
-}
+/* -------------------------------------------------------------------------- */
 
 /* about section styling */
 .about{
-    background-color: #313135;
+    background-color:#313135;
 }
 .about .title{
     color: white;
@@ -254,179 +270,27 @@ section .title::after{
     padding: 10px 30px;
     margin-top: 20px;
     border-radius: 6px;
+    margin-left: 25%;
     border: 2px solid orange;
     transition: all 0.3s ease;
+    margin-left: 41%;
+    transform: translateX(-50%);
 }
 .about .about-content .right a:hover{
     color: orange;
     background: none;
 }
-
-/* contact section styling */
-.contact{
-    background-color: #313135;
+.about .about-content .right .socialIcon{
+    padding-top: 2%;
+    padding-left: 22%;
 }
-.contact .title{
-    color: white;
-}
-.contact .title::before,
-.contact .title::before{
-    background: white;
-}
-.contact .title::after{
-    content: "contact me";
-    background: #313135;
-}
-.contact-content{
-    color: white;
-}
-.contact .contact-content .column{
-    width: calc(50% - 30px);
-}
-.contact .contact-content .text{
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-.contact .contact-content .left p{
-    text-align: justify;
-}
-.contact .contact-content .left .icons{
-    margin: 10px 0;
-}
-.contact .contact-content .row{
-    display: flex;
-    height: 65px;
-    align-items: center;
-}
-.contact .contact-content .row .info{
-    margin-left: 30px;
-}
-.contact .contact-content .row i{
-    font-size: 25px;
-    color: orange;
-}
-.contact .contact-content .info .head{
-    font-weight: 500;
-}
-.contact .contact-content .info .sub-title{
-    color: rgb(235, 233, 233);
-}
-.contact .right form .fields{
-    display: flex;
-}
-.contact .right form .field,
-.contact .right form .fields .field{
-    height: 45px;
-    width: 100%;
-    margin-bottom: 15px;
-}
-.contact .right form .textarea{
-    height: 110px;
-    width: 100%;
-}
-.contact .right form .name{
-    margin-right: 10px;
-}
-.contact .right form .field input,
-.contact .right form .textarea textarea{
-    height: 100%;
-    width: 100%;
-    border: 1px solid lightgrey;
-    border-radius: 6px;
-    outline: none;
-    padding: 0 15px;
-    font-size: 17px;
-    font-family: 'Poppins', sans-serif;
-    transition: all 0.3s ease;
-}
-.contact .right form .field input:focus,
-.contact .right form .textarea textarea:focus{
-    border-color: #b3b3b3;
-}
-.contact .right form .textarea textarea{
-    padding-top: 10px;
-    resize: none;
-}
-.contact .right form .button-area{
-    display: flex;
-    align-items: center;
-}
-.right form .button-area button{
-    color: #fff;
-    display: block;
-    width: 160px!important;
-    height: 45px;
-    outline: none;
-    font-size: 18px;
-    font-weight: 500;
-    border-radius: 6px;
-    cursor: pointer;
-    flex-wrap: nowrap;
-    background: orange;
-    border: 2px solid orange;
-    transition: all 0.3s ease;
-}
-.right form .button-area button:hover{
-    color: orange;
-    background: none;
+.about .about-content .right .socialIcon img{
+    padding-left: 5px;
 }
 
-/* services section styling */
-.services, .teams{
-    color:#fff;
-    background: #111;
-}
-.services .title::before,
-.teams .title::before{
-    background: #fff;
-}
-.services .title::after,
-.teams .title::after{
-    background: #111;
-    content: "what i provide";
-}
-.serv-content .card .box{
-    padding: 10px 10px;
-}
-.services .serv-content{
-    grid-gap: 20px;
-}
-.services .serv-content .card{
-    width: calc(33% - 20px);
-    background: #222;
-    text-align: center;
-    border-radius: 6px;
-    padding: 50px 25px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-.services .serv-content .card:hover{
-    background: orange;
-}
-.services .serv-content .card .box{
-    transition: all 0.3s ease;
-}
-.services .serv-content .card:hover .box{
-    transform: scale(1.05);
-}
-.services .serv-content .card i{
-    font-size: 50px;
-    color: orange;
-    transition: color 0.3s ease;
-}
-.services .serv-content .card:hover i{
-    color: #fff;
-}
-.services .serv-content .card .text{
-    font-size: 25px;
-    font-weight: 500;
-    margin: 10px 0 7px 0;
-    padding-bottom: 10px;
-}
+/* -------------------------------------------------------------------------- */
 
 /* skills section styling */
-
 .skills{
     background-color: #111;
 }
@@ -515,6 +379,8 @@ section .title::after{
     width: 70%;
 }
 
+/* -------------------------------------------------------------------------- */
+
 /* education section styling */
 .education, .teams{
     color:#fff;
@@ -529,7 +395,6 @@ section .title::after{
     background: #313135;
     content: "what i learn";
 }
-
 .wrapper{
     max-width: 1100px;
     margin: 60px auto;
@@ -641,53 +506,8 @@ section .title::after{
 .text-right{
     text-align: right!important;
 }
-.portfolio{
-    background-color: white;
-    padding: 100px 7px;
-}
-.portfolio .filter-buttons{
-    flex: 0 0 100%;
-    max-width: 100%;
-    margin-bottom: 20px;
-}
-.portfolio .filter-buttons ul{
-    list-style: none;
-    text-align: center;
-    padding: 0;
-}
-.portfolio .filter-buttons ul li{
-    color: #000000;
-    font-weight: 500;
-    font-size: 16px;
-    display: inline-block;
-    margin: 0px 8px;
-    text-transform: uppercase;
-    cursor: pointer;
-    padding-bottom: 0px;
-}
-.portfolio .filter-buttons ul li.active{
-    color: #febd01;
-    border-bottom: 2px solid #febd01;
-}
-.portfolio .portfolio-gallery{
-    flex: 0 0 100%;
-    max-width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-}
-.portfolio .portfolio-gallery .item{
-    flex: 0 0 33.33%;
-    max-width: 33.33%;
-    position: relative;
-    padding: 8px;
-}
-.portfolio .portfolio-gallery .item .inner{
-    position: relative;
-}
-.portfolio .portfolio-gallery .item img{
-    width: 100%;
-    display: block;
-}
+
+/* -------------------------------------------------------------------------- */
 
 /* project section styling */
 .project, .teams{
@@ -727,8 +547,6 @@ section .title::after{
     color: orange;
     border-bottom: 2px solid orange;
 }
-
-
 .project .project-gallery{
     flex: 0 0 100%;
     max-width: 100%;
@@ -753,23 +571,32 @@ section .title::after{
     position: relative;
     padding: 8px;
 }
-.btn{
-    background: orange;
-    border-radius: 15px;
-    padding: 0 30px;
-    text-decoration: none;
+.more-info{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+.more-info > button{
+    border: none;
+    border-radius: 20px;
+    background-color: orange;
+    color: #fff;
+    padding: 10px 40px;
+    cursor: pointer;
     color: #fff;
     display: inline-block;
-    border: 1px solid transparent;
-    transition: all 0.4s ease;
-    transform: translate(85px, 6px);
+    font-size: 20px;
+    font-weight: bold;
 }
-.btn:hover{
+.more-info > button:hover{
     background: transparent;
     color: orange;
     border: 1px solid orange;
 }
 
+/* -------------------------------------------------------------------------- */
 
 /* experience section styling */
 .experience, .teams{
@@ -785,7 +612,6 @@ section .title::after{
     background: #313135;
     content: "what i provide";
 }
-
 .ex-container{
     margin-top: 50px;
     display: flex;
@@ -802,7 +628,6 @@ section .title::after{
 .ex-container > .box-3:nth-child(1){
     justify-content: flex-start;
     /* border-right:2px dashed ; */
-
 }
 .ex-container > .box-3:nth-child(2){
     justify-content: flex-end;
@@ -828,6 +653,172 @@ section .title::after{
     cursor: pointer;
 }
 
+/* -------------------------------------------------------------------------- */
+
+/* services section styling */
+.services, .teams{
+    color:#fff;
+    background: #111;
+}
+.services .title::before,
+.teams .title::before{
+    background: #fff;
+}
+.services .title::after,
+.teams .title::after{
+    background: #111;
+    content: "what i provide";
+}
+.serv-content .card .box{
+    padding: 10px 10px;
+}
+.services .serv-content{
+    grid-gap: 20px;
+}
+.services .serv-content .card{
+    width: calc(33% - 20px);
+    background: #222;
+    text-align: center;
+    border-radius: 6px;
+    padding: 50px 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.services .serv-content .card:hover{
+    background: orange;
+}
+.services .serv-content .card .box{
+    transition: all 0.3s ease;
+}
+.services .serv-content .card:hover .box{
+    transform: scale(1.05);
+}
+.services .serv-content .card i{
+    font-size: 50px;
+    color: orange;
+    transition: color 0.3s ease;
+}
+.services .serv-content .card:hover i{
+    color: #fff;
+}
+.services .serv-content .card .text{
+    font-size: 25px;
+    font-weight: 500;
+    margin: 10px 0 7px 0;
+    padding-bottom: 10px;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* contact section styling */
+.contact{
+    background-color: #313135;
+}
+.contact .title{
+    color: white;
+}
+.contact .title::before,
+.contact .title::before{
+    background: white;
+}
+.contact .title::after{
+    content: "contact me";
+    background: #313135;
+}
+.contact-content{
+    color: white;
+}
+.contact .contact-content .column{
+    width: calc(50% - 30px);
+}
+.contact .contact-content .text{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.contact .contact-content .left p{
+    text-align: justify;
+}
+.contact .contact-content .left .icons{
+    margin: 10px 0;
+}
+.contact .contact-content .row{
+    display: flex;
+    height: 65px;
+    align-items: center;
+}
+.contact .contact-content .row .info{
+    margin-left: 30px;
+}
+.contact .contact-content .row i{
+    font-size: 25px;
+    color: orange;
+}
+.contact .contact-content .info .head{
+    font-weight: 500;
+}
+.contact .contact-content .info .sub-title{
+    color: rgb(235, 233, 233);
+}
+.contact .right form .fields{
+    display: flex;
+}
+.contact .right form .field,
+.contact .right form .fields .field{
+    height: 45px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+.contact .right form .textarea{
+    height: 110px;
+    width: 100%;
+}
+.contact .right form .name{
+    margin-right: 10px;
+}
+.contact .right form .field input,
+.contact .right form .textarea textarea{
+    height: 100%;
+    width: 100%;
+    border: 1px solid lightgrey;
+    border-radius: 6px;
+    outline: none;
+    padding: 0 15px;
+    font-size: 17px;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+}
+.contact .right form .field input:focus,
+.contact .right form .textarea textarea:focus{
+    border-color: #b3b3b3;
+}
+.contact .right form .textarea textarea{
+    padding-top: 10px;
+    resize: none;
+}
+.contact .right form .button-area{
+    display: flex;
+    align-items: center;
+}
+.right form .button-area button{
+    color: #fff;
+    display: block;
+    width: 160px!important;
+    height: 45px;
+    outline: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    flex-wrap: nowrap;
+    background: orange;
+    border: 2px solid orange;
+    transition: all 0.3s ease;
+}
+.right form .button-area button:hover{
+    color: orange;
+    background: none;
+}
 
 *,body, html{
     margin: 0;
@@ -837,7 +828,21 @@ section .title::after{
     scroll-behavior: smooth;
 }
 
-/* --------------footer ---------------- */
+/* -------------------------------------------------------------------------- */
+
+/* footer section styling */
+.footer .logo a{
+    color: #fff;
+    font-size: 35px;
+    font-weight: 600;
+}
+.footer .logo a span{
+    color: orange;
+    transition: all 0.3s ease;
+}
+.footer.sticky .logo a span{
+    color: #fff;
+}
 .row{
     display: flex;
     flex-wrap: wrap;
@@ -919,17 +924,4 @@ ul{
     font-size: 13px;
     word-spacing: 2px;
     text-transform: capitalize;
-}
-
-/* --------------responsive ---------------- */
-@media(max-width: 767px){
-    .footer-col{
-        width: 50%;
-        margin-bottom: 30px;
-    }
-}
-@media(max-width: 574px) {
-    .footer-col {
-        width: 100%;
-    }
 }
