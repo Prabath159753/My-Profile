@@ -12,8 +12,19 @@ _For more examples, please refer to the documentation
 <!-- Using Tools EXAMPLES -->
 ## Using Tools
 
-Design Tools - Adobe XD / Figma
-Coding Tools - IntelliJ IDEA / Visual Studio Code
+* Design Tools - Adobe XD / Figma
+* Coding Tools - IntelliJ IDEA / Visual Studio Code
+
+<!-- CONTACT -->
+## Contact
+
+Name :- Poornima Kavishka Prabath
+
+Personal Linkedin Account :- [https://www.linkedin.com/in/kavishka-prabath-628485225/](https://www.linkedin.com/in/kavishka-prabath-628485225/) 
+
+Github Account Link :- https://github.com/Prabath159753
+
+My-Portfolio Page Link :- https://prabath159753.github.io/My-Profile/
 
 <!-- LICENSE -->
 ## License
