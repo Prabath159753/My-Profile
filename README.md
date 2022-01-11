@@ -1,6 +1,11 @@
-# My-Profile
+# My-Portfolio
 
 This is my Personal Web
+
+<!-- LICENSE -->
+## License
+
+Copyright @ 2022 My Profile All Right Reserved By Poornima Kavishka Prabath
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
