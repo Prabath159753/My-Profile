@@ -18,25 +18,25 @@ _For more examples, please refer to the documentation
 <!-- CONTACT -->
 ## Contact
 
-Name :- Poornima Kavishka Prabath
+* Name :- Poornima Kavishka Prabath
 
-Personal Linkedin Account :- [https://www.linkedin.com/in/kavishka-prabath-628485225/](https://www.linkedin.com/in/kavishka-prabath-628485225/) 
+* Personal Linkedin Account :- [https://www.linkedin.com/in/kavishka-prabath-628485225/](https://www.linkedin.com/in/kavishka-prabath-628485225/) 
 
-Github Account Link :- https://github.com/Prabath159753
+* Github Account Link :- https://github.com/Prabath159753
 
-My-Portfolio Page Link :- https://prabath159753.github.io/My-Profile/
+* My-Portfolio Page Link :- https://prabath159753.github.io/My-Profile/
 
 ## Project Links
 
-Site Map :-
+* Site Map :- https://www.gloomaps.com/g2g2G7or2F
 
-WireFrame :-
+* WireFrame :- https://wireframe.cc/pro/pp/4dac8b855489981
 
-Mockup :-
+* Mockup :- https://www.figma.com/file/Z6FtkdQ9nmD06s0fJHgkUF/Untitled?node-id=0%3A1
 
-Github Page Link :-
+* Github Page Link :-https://prabath159753.github.io/My-Profile/
 
-Project Link :- 
+* Inclass_Assignments Project Link :- https://github.com/Prabath159753/Web_Inclass_Assignments
 
 <!-- ROADMAP -->
 ## Roadmap
