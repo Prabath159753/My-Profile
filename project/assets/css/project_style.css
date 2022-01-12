@@ -2,3 +2,177 @@
   * @ author : Kavishka Prabath
   * @ since : 0.1.0
 **/
+
+/*  import google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+/* custom scroll bar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* all similar content styling codes */
+section{
+    padding: 100px 0;
+}
+.max-width{
+    max-width: 1300px;
+    padding: 0 80px;
+    margin: auto;
+}
+.about, .services, .skills, .teams, .contact, footer{
+    font-family: 'Poppins', sans-serif;
+}
+.about .about-content,
+.services .serv-content,
+.skills .skills-content,
+.contact .contact-content{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+section .title{
+    position: relative;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 500;
+    margin-bottom: 60px;
+    padding-bottom: 20px;
+    font-family: 'Ubuntu', sans-serif;
+}
+section .title::before{
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    width: 180px;
+    height: 3px;
+    background: #111;
+    transform: translateX(-50%);
+}
+section .title::after{
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    font-size: 20px;
+    color: orange;
+    padding: 0 5px;
+    /* background: #fff; */
+    transform: translateX(-50%);
+}
+
+/* project section styling */
+.project, .teams{
+    color:#fff;
+    background: #111;
+}
+.project .title::before,
+.teams .title::before{
+    background: #fff;
+}
+.project .title::after,
+.teams .title::after{
+    background: #111;
+    content: "what i provide";
+}
+.project .filter-buttons{
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+.project .filter-buttons ul{
+    list-style: none;
+    text-align: center;
+    padding: 0;
+}
+.project .filter-buttons ul li{
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+    display: inline-block;
+    margin: 0 8px;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding-bottom: 0;
+}
+.project .filter-buttons ul li.active{
+    color: orange;
+    border-bottom: 2px solid orange;
+}
+.project .project-gallery{
+    flex: 0 0 100%;
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.project .project-gallery .item{
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+    position: relative;
+    padding: 8px;
+}
+.project .project-gallery .item .inner{
+    position: relative;
+}
+.project .project-gallery .item img{
+    width: 100%;
+    display: block;
+    padding: 20px 20px;
+}
+.project .project-gallery .item img:hover{
+    position: relative;
+    padding: 8px;
+}
+.more-info{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+.more-info > button{
+    border: none;
+    border-radius: 20px;
+    background-color: orange;
+    color: #fff;
+    padding: 10px 40px;
+    cursor: pointer;
+    color: #fff;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: bold;
+}
+.more-info > button:hover{
+    background: transparent;
+    color: orange;
+    border: 1px solid orange;
+}
+
+.project .sub_title{
+    padding-left: 0%;
+    border-bottom: 2px dashed;
+    padding-bottom: 10px;
+    margin-left: 30px;
+    padding-top: 50px;
+}
