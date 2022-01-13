@@ -2,7 +2,7 @@
 ## CSS Positions
 ### Case 1 design :-
 
-![homePage]()
+![homePage](https://user-images.githubusercontent.com/93065467/149382260-1066be89-2ebe-461a-a697-65205781724c.JPG)
 
 <!-- USAGE EXAMPLES -->
 ### Usage
