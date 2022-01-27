@@ -120,6 +120,199 @@
     </section>
 </main>
 
+<!--OrderDetail Content-->
+<main id="Order-Content">
+    <div class="row">
+        <!--Item Select Details-->
+        <div class="col-lg-3 mt-5 mx-5">
+            <div class="card-header bg-warning font-weight-bolder">Item Select</div>
+            <div class="card-body">
+                <form>
+                    <div class="text-black-50">
+                        <div class="">
+                            <div class="form-group ">
+                                <label>Item Code :</label>
+                                <select class="form-control" id="selectItemCode"></select>
+                                <span class="control-error"
+                                      id="item-empty-error"></span>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="form-group mt-2">
+                                <label>Item Name :</label>
+                                <input class="form-control" id="txtItemDescription" type="text">
+                            </div>
+                        </div>
+
+                        <div class="">
+                            <div class="form-group mt-2">
+                                <label class="">Item Unit Price :</label>
+                                <input class="form-control" id="txtItemPrice" type="text">
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="form-group mt-2">
+                                <label class="">Qty On Hand :</label>
+                                <input class="form-control" id="txtQTYOnHand" type="text">
+                            </div>
+                        </div>
+
+                        <div class="">
+                            <div class="form-group mt-2 ">
+                                <label>Order Quantity :</label>
+                                <input class="form-control" id="OrderQty" min="1" type="number">
+                                <span class="control-error" id="error"style="color: red; display: none;">Input available Qty</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group text-right">
+                        <button class="btn btn-success mt-4" id="btnAddToTable" type="button">
+                            Add Item
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <!--Select Customer Details-->
+        <div class="col-lg-3 ">
+            <div class="card-header bg-secondary font-weight-bolder mt-5 ">Customer Select</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6 mt-2">
+                        <div class="form-group">
+                            <label>Customer ID :</label>
+                            <select class="form-control" id="selectCusID"></select>
+                            <span class="control-error"
+                                  id="cus-empty-error"></span>
+                        </div>
+                    </div>
+                    <div class="col-6 mt-2">
+                        <div class="form-group">
+                            <label>Customer Name :</label>
+                            <input class="form-control" id="orderCustomerName" type="text">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-6 mt-2">
+                        <div class="form-group">
+                            <label>Cus Address :</label>
+                            <input class="form-control" id="orderCustomerAddress" type="text">
+                        </div>
+                    </div>
+                    <div class="col-6 mt-2">
+                        <div class="form-group">
+                            <label>Customer Age :</label>
+                            <input class="form-control" id="orderCustomerAge" type="text">
+                        </div>
+                    </div>
+                    <div class="col-12 mt-2">
+                        <div class="form-group">
+                            <label>Customer Salary :</label>
+                            <input class="form-control" id="orderCustomerSalary" type="text">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Invoice Details-->
+        <div class="col-lg-4 mt-5 mx-5">
+            <div class="card">
+                <div class="card-header bg-dark text-white font-weight-bolder">Invoice Details</div>
+                <div class="card-body">
+                    <form>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label>Order ID :</label>
+                                    <input class="form-control" id="txtOrderID" type="text">
+                                    <span class="control-error"
+                                          id="orderId-invalid-error"></span>
+                                </div>
+                            </div>
+                            <div class="col-3 mx-4">
+                                <div class="form-group">
+                                    <label >Date :</label>
+                                    <label id="txtDate" ></label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6 mt-2">
+                                <div class="form-group">
+                                    <label>Cash</label>
+                                    <input class="form-control" id="txtCash" type="text">
+                                </div>
+                            </div>
+                            <div class="col-6 mt-2">
+                                <div class="form-group">
+                                    <label>Discount</label>
+                                    <input class="form-control" id="txtDiscount" min="0" type="number">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6 mt-2">
+                                <div class="form-group ">
+                                    <label id="lblBalance">Balance :</label>
+                                    <label id="txtBalance">0.00</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 mt-4">
+                                    <span id="lblTotal">Total</span>
+                                </div>
+                                <div class="col-5 mt-4">
+                                    <span id="lblSubTotal">Sub Total</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 mt-2">
+                                    <span id="txtTotal"></span> Rs/=
+                                </div>
+                                <div class="col-5 mt-2">
+                                    <span id="txtSubTotal"></span> Rs/=
+                                </div>
+                            </div>
+                            <div class="col-4 mt-4">
+                                <button class="btn btn-danger" id="btnPurchase" type="button">Purchase</button>
+                            </div>
+                            <div class="col-4 mt-4 align-content-end">
+                                <button class="btn btn-warning" id="btnPrint" type="button">Print</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Order Table-->
+    <div class="col-md-12 mt-4" style="height:180px; overflow-y: scroll">
+        <table class="table table-bordered text-white " id="tblOrder">
+            <thead class="bg-secondary">
+            <tr>
+                <th>Order ID</th>
+                <th>Item Code</th>
+                <th>Customer ID</th>
+                <th>Quantity</th>
+                <th>Total</th>
+            </tr>
+            </thead>
+            <tbody class="text-black-50 bg-white" id="ViewOrder">
+
+            </tbody>
+        </table>
+    </div>
+
+</main>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 </body>
