@@ -70,6 +70,56 @@
     </section>
 </main>
 
+<!--Item Content-->
+<main id="Item-Content">
+    <section class="row">
+        <div class="col-4  " >
+            <form class="mx-5 mt-5">
+                <div class="mb-3">
+                    <label for="txtItemCode" class="form-label">Item Code</label>
+                    <input type="text" class="form-control" id="txtItemCode">
+                    <span class="control-error text-danger" id="lblCode"></span>
+                </div>
+                <div class="mb-3">
+                    <label for="txtDescription" class="form-label">Item Description</label>
+                    <input type="text" class="form-control" id="txtDescription">
+                    <span class="control-error text-danger" id="lblDes"></span>
+                </div>
+                <div class="mb-3">
+                    <label  for="txtQty" class="form-label">Item QtyOnHand</label>
+                    <input type="text" class="form-control" id="txtQty" >
+                    <span class="control-error text-danger" id="lblQty"></span>
+                </div>
+                <div class="mb-3">
+                    <label  for="txtPrice" class="form-label">Item Unit Price</label>
+                    <input type="text" class="form-control" id="txtPrice" >
+                    <span class="control-error text-danger" id="lblPrice"></span>
+                </div>
+
+                <button  type="button" class="btn btn-primary mt-2" id="btnSaveItem">Save </button>
+                <button  type="button" class="btn btn-warning mt-2 mx-2" id="btnUpdateItem">Update </button>
+                <button  type="button" class="btn btn-danger mt-2 " id="btnDeleteItem">Delete </button>
+                <button  type="button" class="btn btn-secondary mt-2 mx-2" id="btnClearAllItem">Clear</button>
+            </form>
+        </div >
+        <div class="col-7">
+            <table class="table table-bordered table-hover mt-5 mx-5">
+                <thead class="bg-secondary text-black-50">
+                <tr>
+                    <th>Item Code</th>
+                    <th>Description</th>
+                    <th>Qty</th>
+                    <th>Price</th>
+                </tr>
+                </thead>
+                <tbody class="bg-light " id="tblItem">
+
+                </tbody>
+            </table>
+        </div>
+    </section>
+</main>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 </body>
