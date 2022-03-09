@@ -10,8 +10,47 @@
     <title>Item</title>
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link href="assets/fonts/css/all.min.css" rel="stylesheet">
+
+    <style>
+        .navbar {
+            background-color: #091c46;
+        }
+        .navbar-toggler-icon{
+            color: white;
+        }
+    </style>
+
 </head>
 <body>
+
+<!-- navigation bar start  -->
+<nav class="navbar navbar-expand-lg ">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold brandName text-white " href="#">
+            <i class="fas fa-store me-2 "></i>
+            Star<span style="color:orange;">Max </span> Store
+        </a>
+        <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon" ></span>
+        </button>
+        <div class="collapse navbar-collapse me-2" id="navbarSupportedContent">
+            <ul class="navbar-nav me-2">
+                <li class="nav-item">
+                    <a class="nav-link active font-weight-bold text-white" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold text-white" aria-current="page" href="#">Customer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">Item</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- navigation bar end  -->
+
 <!--Item Content-->
 <main id="Item-Content">
     <section class="row">
