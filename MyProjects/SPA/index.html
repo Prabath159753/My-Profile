@@ -44,6 +44,69 @@
 </nav>
 <!-- Navigation Bar End  -->
 
+<!-- Customer Content Start-->
+<section class="container-fluid mt-3">
+    <section class="row mt-3 justify-content-around">
+        <div class="col-12 col-md-4">
+            <div class="shadow-sm pt-3 pb-5 px-3 py-3 mt-2">
+                <h1 class="h1 mb-3">Customer Manage</h1>
+                <div class="mb-3">
+                    <label class="form-label" for="txtSearchCusID">Search Customer</label>
+                    <input class="form-control" id="txtSearchCusID" placeholder="Customer ID, NIC, Name" type="text">
+                </div>
+                <button class="btn btn-primary" id="btnSearch">Search</button>
+
+            </div>
+        </div>
+        <div class="col-12 col-md-5">
+            <div class="mb-3">
+                <label class="form-label" for="txtCusID">Customer ID</label>
+                <input class="form-control" id="txtCusID" placeholder="Customer ID" type="text">
+                <p><small class="text-danger pl-1" id="lblCusId"></small></p>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="txtCusName">Customer Name</label>
+                <input class="form-control" id="txtCusName" placeholder="Customer Name" type="text">
+                <p><small class="text-danger pl-1" id="lblCusName"></small></p>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="txtCusAddress">Customer Address</label>
+                <input class="form-control" id="txtCusAddress" placeholder="Customer Address" type="text">
+                <p><small class="text-danger pl-1" id="lblCusAddress"></small></p>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="txtCusTp">Customer Tp</label>
+                <input class="form-control" id="txtCusTp" placeholder="Customer Tp" type="text">
+                <p><small class="text-danger pl-1" id="lblCusTp"></small></p>
+            </div>
+
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button class="btn btn-primary me-md-2" id="btnCustomer">Save</button>
+                <button class="btn btn-success me-md-2" id="btnCustomer">Update</button>
+                <button class="btn btn-danger me-md-2">Delete</button>
+            </div>
+
+        </div>
+    </section>
+    <section class="row mt-4">
+        <div class="col">
+            <table class="table table-hover">
+                <thead class="bg-danger text-white">
+                <tr>
+                    <th>Customer ID</th>
+                    <th>Customer Name</th>
+                    <th>Customer Address</th>
+                    <th>Customer Tp</th>
+                </tr>
+                </thead>
+                <tbody id="customerTable"></tbody>
+            </table>
+        </div>
+    </section>
+
+</section>
+<!-- Customer Content End-->
+
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 
 </body>
