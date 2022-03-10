@@ -1,0 +1,31 @@
+/**
+  * @ author : Kavishka Prabath
+  * @ since : 0.1.0
+**/
+
+.navbar {
+    background-color: #091c46;
+}
+
+/*.navbar {*/
+/*    padding-top: 0.2rem;*/
+/*    padding-bottom: 0.2rem;*/
+/*}*/
+
+.navbar-toggler-icon{
+    color: white;
+}
+
+.navbar-toggler-icon {
+    background: white;
+}
+
+.navbar-toggler {
+    border: 1px solid white;
+}
+
+/*@media(max-width: 320px){*/
+/*    .brandName {*/
+/*        font-size: 28px;*/
+/*    }*/
+/*}*/
