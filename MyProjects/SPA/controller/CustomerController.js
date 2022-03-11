@@ -59,7 +59,7 @@ $("#txtCusTp").on('keyup', function (eventOb) {
 });
 
 // focusing events end
-$("#btnCustomer").attr('disabled', true);
+$("#btnSaveCustomer").attr('disabled', true);
 
 function formValid() {
     var cusID = $("#txtCusID").val();
