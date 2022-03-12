@@ -119,8 +119,8 @@ function clearAllCustomerForm() {
 
 
 
-
 /* validation started */
+
 /* customer regular expressions */
 const cusIDRegEx = /^(C00-)[0-9]{1,3}$/;
 const cusNameRegEx = /^[A-z ]{5,20}$/;
@@ -175,9 +175,11 @@ $("#txtCusTp").on('keyup', function (eventOb) {
     }
 });
 
-// focusing events end
-$("#btnSaveCustomer").attr('disabled', true);
+/* focusing events end */
 
+$("#btnSaveCustomer,#btnUpdateCustomer,#btnDeleteCustomer").attr('disabled', true);
+
+/* print condition for unvalid input */
 function formValid() {
     var cusID = $("#txtCusID").val();
     $("#txtCusID").css('border', '1px solid blue');
@@ -219,6 +221,7 @@ function formValid() {
     }
 }
 
+/* check input value valid  */
 function checkIfValid() {
     var cusID = $("#txtCusID").val();
     if (cusIDRegEx.test(cusID)) {
@@ -254,14 +257,14 @@ function checkIfValid() {
 function setButton() {
     let b = formValid();
     if (b) {
-        $("#btnCustomer").attr('disabled', false);
+        $("#btnSaveCustomer").attr('disabled', false);
     } else {
-        $("#btnCustomer").attr('disabled', true);
+        $("#btnSaveCustomer").attr('disabled', true);
     }
 }
 
-$('#btnCustomer').click(function () {
+$('#btnSaveCustomer').click(function () {
     checkIfValid();
 });
 
-/* validation ended */
+/* validation end */
