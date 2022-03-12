@@ -3,6 +3,36 @@
  * @ since : 0.1.0
  **/
 
+/* save item */
+function saveItem() {
+    let itemid = $("#txtItemCode").val();
+    let name = $("#txtItemName").val();
+    let qty = $("#txtItemQty").val();
+    let price = $("#txtItemPrice").val();
+
+
+    if (name.length !==0 && qty.length !==0 && price.length !==0) {
+        itemDB.push(new Item(itemid, name, qty, price));
+        getAllItem();
+        // generateCustomerId();
+
+    } else {
+        alert("Fields cannot be empty!");
+    }
+}
+
+/* get all item */
+function getAllItem() {
+    $("#itemTable").empty();
+    for (let i = 0; i < itemDB.length; i++) {
+
+        let row = `<tr><td>${itemDB[i].getCode()}</td><td>${itemDB[i].getDescription()}</td><td>${itemDB[i].getQty()}</td><td>${itemDB[i].getUnitPrice()}</td></tr>`;
+        /*select the table body and append the row */
+        $("#itemTable").append(row);
+
+    }
+}
+
 /* validation started */
 /* Regular expression */
 var itemCodeRegEx = /^(I00-)[0-9]{3}$/;

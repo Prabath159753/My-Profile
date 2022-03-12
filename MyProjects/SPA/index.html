@@ -107,16 +107,16 @@
 <!-- Customer Content End-->
 
 <!-- Item Content Start-->
-<section class="container-fluid mt-3">
+<section class="container-fluid mt-3" id="itemContent">
     <section class="row mt-3 justify-content-around">
         <div class="col-12 col-md-4">
             <div class="shadow-sm pt-3 pb-5 px-3 py-3 mt-2">
                 <h1 class="h1 mb-3">Item Manage</h1>
                 <div class="mb-3">
-                    <label class="form-label" for="srcCusID">Search Item</label>
-                    <input class="form-control" id="srcCusID" placeholder="Item Code" type="text">
+                    <label class="form-label" for="txtSearchItemID">Search Item</label>
+                    <input class="form-control" id="txtSearchItemID" placeholder="Item Code" type="text">
                 </div>
-                <button class="btn btn-primary">Search</button>
+                <button class="btn btn-primary" id="btnSearchItem">Search</button>
 
             </div>
         </div>
@@ -145,7 +145,7 @@
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 <button class="btn btn-primary me-md-2" id="btnSaveItem">Save</button>
                 <button class="btn btn-success me-md-2" id="btnUpdateItem">Update</button>
-                <button class="btn btn-danger me-md-2" id="btnDeleteCItem">Delete</button>
+                <button class="btn btn-danger me-md-2" id="btnDeleteItem">Delete</button>
             </div>
 
         </div>
@@ -153,7 +153,7 @@
     <section class="row mt-4">
         <div class="col">
             <table class="table table-hover">
-                <thead class="bg-danger text-white">
+                <thead class="bg-danger">
                 <tr>
                     <th>Item Code</th>
                     <th>Item Name</th>
@@ -170,8 +170,12 @@
 
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 <script src="assets/jQuery/jquery-3.6.0.min.js"></script>
+
 <script src="db/DB.js"></script>
+<script src="model/Item.js"></script>
+
 <script src="controller/CustomerController.js" ></script>
+<script src="controller/ItemController.js"></script>
 
 </body>
 </html>
