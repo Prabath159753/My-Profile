@@ -50,13 +50,12 @@ $("#btnSearchItem").click(function () {
 
     }else{
         clearAll();
-        alert("No Such a Customer");
+        alert("No Such a Item");
     }
 });
 
 function searchItem(id) {
     for (let i = 0; i < itemDB.length; i++) {
-        console.log("aaaaaaaaaaaaa");
         if (itemDB[i].getCode() == id) {
             return itemDB[i];
         }
@@ -80,10 +79,10 @@ $("#btnUpdateItem").click(function () {
         }
         getAllItem();
         clearAll();
-        alert("Customer was updated!");
+        alert("Item was updated!");
         $("#txtSearchItemID").val("");
     } else {
-        alert("Select a Customer to Update!");
+        alert("Select a Item to Update!");
     }
 });
 
@@ -92,7 +91,7 @@ $("#btnDeleteItem").click(function () {
     if ($("#txtItemName").val().length !== 0) {
         let itemId = $("#txtItemCode").val();
 
-        let res = confirm("Do you really need to delete this Customer..?");
+        let res = confirm("Do you really need to delete this Item..?");
         if (res) {
 
             for (let i = 0; i < itemDB.length; i++) {
@@ -100,14 +99,14 @@ $("#btnDeleteItem").click(function () {
                     itemDB.splice(i, 1);
                 }
             }
-            alert("Customer was deleted !");
+            alert("Item was deleted !");
             getAllItem();
             clearAll();
             $("#txtSearchItemID").val("");
         }
 
     } else {
-        alert("Select a Customer to Remove!");
+        alert("Select a Item to Remove!");
     }
 });
 

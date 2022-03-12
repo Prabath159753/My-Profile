@@ -3,6 +3,123 @@
  * @ since : 0.1.0
  **/
 
+/* save customer */
+function saveCustomer() {
+    let cid = $("#txtCusID").val();
+    let name = $("#txtCusName").val();
+    let address = $("#txtCusAddress").val();
+    let contact = $("#txtCusTp").val();
+
+    if (name.length !==0 && address.length !==0 && contact.length !==0) {
+        var c = new Customer(cid, name, address, contact)
+        customerDB.push(c);
+        getAllCustomers();
+        // generateCustomerId();
+        // name.focus();
+    } else {
+        alert("Fields cannot be empty!");
+    }
+}
+
+/* get all customer */
+function getAllCustomers() {
+    $("#customerTable").empty();
+    for (let i = 0; i < customerDB.length; i++) {
+
+        let row = `<tr><td>${customerDB[i].getCId()}</td><td>${customerDB[i].getName()}</td><td>${customerDB[i].getAddress()}</td><td>${customerDB[i].getContact()}</td></tr>`;
+        /* select the table body and append the row */
+        $("#customerTable").append(row);
+    }
+}
+
+/* search customer */
+$("#btnSearchCustomer").click(function () {
+    var searchID = $("#txtSearchCusID").val();
+
+    var response = searchCustomer(searchID);
+    console.log(searchID);
+    if (response) {
+        $("#txtCusID").val(response.getCId());
+        $("#txtCusName").val(response.getName());
+        $("#txtCusAddress").val(response.getAddress());
+        $("#txtCusTp").val(response.getContact());
+        $("#lblCusId,#lblCusName,#lblCusAddress,#lblCusTp").text("");
+
+        $("#btnUpdateCustomer,#btnDeleteCustomer").attr('disabled', false);
+    }else{
+        clearAllCustomerForm();
+        alert("No Such a Customer");
+    }
+});
+
+function searchCustomer(id) {
+    for (let i = 0; i < customerDB.length; i++) {
+        if (customerDB[i].getCId() == id) {
+            return customerDB[i];
+        }
+    }
+}
+
+/* Update a Customer */
+$("#btnUpdateCustomer").click(function () {
+    if ($("#txtCusName").val().length !== 0) {
+        let cid = $("#txtSearchCusID").val();
+        let name = $("#txtCusName").val();
+        let address = $("#txtCusAddress").val();
+        let contact = $("#txtCusTp").val();
+
+        for (let i = 0; i < customerDB.length; i++) {
+            if (customerDB[i].getCId() === cid ) {
+                customerDB[i].setName(name);
+                customerDB[i].setAddress(address);
+                customerDB[i].setContact(contact);
+            }
+        }
+        getAllCustomers();
+        clearAllCustomerForm();
+        alert("Customer was updated!");
+        $("#txtSearchCustomer").val("");
+    } else {
+        alert("Select a Customer to Update!");
+    }
+});
+
+/* Remove a Customer */
+$("#btnDeleteCustomer").click(function () {
+    if ($("#txtCusName").val().length !== 0) {
+        let cid = $("#txtCusID").val();
+
+        let res = confirm("Do you really need to delete this Customer..?");
+        if (res) {
+
+            for (let i = 0; i < customerDB.length; i++) {
+                if (customerDB[i].getCId() === cid ) {
+                    customerDB.splice(i, 1);
+                }
+            }
+            alert("Customer was deleted!");
+            getAllCustomers();
+            clearAllCustomerForm();
+            $("#txtSearchCustomer").val("");
+        }
+
+    } else {
+        alert("Select a Customer to Remove!");
+    }
+});
+
+function clearAllCustomerForm() {
+    $('#txtCusID,#txtCusName,#txtCusAddress,#txtCusTp').val("");
+    $('#txtCusID,#txtCusName,#txtCusAddress,#txtCusTp').css('border', '2px solid #ced4da');
+    // $('#txtCusID,').focus();
+    $("#btnSaveCustomer,#btnUpdateCustomer,#btnDeleteCustomer").attr('disabled', true);
+    getAllCustomers();
+    $("#lblCusId,#lblCusName,#lblCusAddress,#lblCusTp").text("");
+}
+
+
+
+
 /* validation started */
 /* customer regular expressions */
 const cusIDRegEx = /^(C00-)[0-9]{1,3}$/;
