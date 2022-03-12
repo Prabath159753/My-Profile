@@ -33,7 +33,97 @@ function getAllItem() {
     }
 }
 
+/* search item */
+$("#btnSearchItem").click(function () {
+    var searchID = $("#txtSearchItemID").val();
+
+    var response = searchItem(searchID);
+    console.log(searchID);
+    if (response) {
+        $("#txtItemCode").val(response.getCode());
+        $("#txtItemName").val(response.getDescription());
+        $("#txtItemQty").val(response.getQty());
+        $("#txtItemPrice").val(response.getUnitPrice());
+        $("#lblItemCode,#lblItemName,#lblItemQty,#lblItemPrice").text("");
+
+        $("#btnUpdateItem,#btnDeleteItem").attr('disabled', false);
+
+    }else{
+        clearAll();
+        alert("No Such a Customer");
+    }
+});
+
+function searchItem(id) {
+    for (let i = 0; i < itemDB.length; i++) {
+        console.log("aaaaaaaaaaaaa");
+        if (itemDB[i].getCode() == id) {
+            return itemDB[i];
+        }
+    }
+}
+
+/* Update a Customer */
+$("#btnUpdateItem").click(function () {
+    if ($("#txtItemName").val().length !== 0) {
+        let itemId = $("#txtItemCode").val();
+        let name = $("#txtItemName").val();
+        let qty = $("#txtItemQty").val();
+        let price = $("#txtItemPrice").val();
+
+        for (let i = 0; i < itemDB.length; i++) {
+            if (itemDB[i].getCode() === itemId ) {
+                itemDB[i].setDescription(name);
+                itemDB[i].setQty(qty);
+                itemDB[i].setUnitPrice(price);
+            }
+        }
+        getAllItem();
+        clearAll();
+        alert("Customer was updated!");
+        $("#txtSearchItemID").val("");
+    } else {
+        alert("Select a Customer to Update!");
+    }
+});
+
+/* Remove a Customer */
+$("#btnDeleteItem").click(function () {
+    if ($("#txtItemName").val().length !== 0) {
+        let itemId = $("#txtItemCode").val();
+
+        let res = confirm("Do you really need to delete this Customer..?");
+        if (res) {
+
+            for (let i = 0; i < itemDB.length; i++) {
+                if (itemDB[i].getCode() === itemId ) {
+                    itemDB.splice(i, 1);
+                }
+            }
+            alert("Customer was deleted !");
+            getAllItem();
+            clearAll();
+            $("#txtSearchItemID").val("");
+        }
+
+    } else {
+        alert("Select a Customer to Remove!");
+    }
+});
+
+function clearAll() {
+    $('#txtItemCode,#txtItemName,#txtItemQty,#txtItemPrice').val("");
+    $('#txtItemCode,#txtItemName,#txtItemQty,#txtItemPrice').css('border', '2px solid #ced4da');
+    // $('#txtCusID,').focus();
+    $("#btnSaveItem,#btnUpdateItem,#btnDeleteItem").attr('disabled', true);
+    getAllCustomers();
+    $("#lblItemCode,#lblItemName,#lblItemQty,#lblItemPrice").text("");
+}
+
+
+
 /* validation started */
+
 /* Regular expression */
 var itemCodeRegEx = /^(I00-)[0-9]{3}$/;
 var itemNameRegEx = /^[A-z ]{4,}$/;
@@ -47,51 +137,45 @@ $('#txtItemCode,#txtItemName,#txtItemQty,#txtItemPrice').on('keydown', function 
 });
 
 $('#txtItemCode,#txtItemName,#txtItemQty,#txtItemPrice').on('blur', function () {
-    formValid();
+    itemFormValid();
 });
 
-//focusing events
+/* focusing events */
 $("#txtItemCode").on('keyup', function (eventOb) {
-    setButton();
+    setItemSaveButton();
     if (eventOb.key == "Enter") {
-        checkIfValid();
+        checkIfValidItem();
     }
 
-    if (eventOb.key == "Control") {
-        var typedCustomerID = $("#txtItemCode").val();
-        var srcCustomer = searchCustomerFromID(typedCustomerID);
-        $("#txtItemCode").val(srcCustomer.getCustomerID());
-        $("#txtItemName").val(srcCustomer.getCustomerName());
-        $("#txtItemQty").val(srcCustomer.getCustomerAddress());
-        $("#txtItemPrice").val(srcCustomer.getCustomerTp());
-    }
 });
 
 $("#txtItemName").on('keyup', function (eventOb) {
-    setButton();
+    setItemSaveButton();
     if (eventOb.key == "Enter") {
-        checkIfValid();
+        checkIfValidItem();
     }
 });
 
 $("#txtItemQty").on('keyup', function (eventOb) {
-    setButton();
+    setItemSaveButton();
     if (eventOb.key == "Enter") {
-        checkIfValid();
+        checkIfValidItem();
     }
 });
 
 $("#txtItemPrice").on('keyup', function (eventOb) {
-    setButton();
+    setItemSaveButton();
     if (eventOb.key == "Enter") {
-        checkIfValid();
+        checkIfValidItem();
     }
 });
 
-// focusing events end
+/* focusing events end */
+
 $("#btnSaveItem").attr('disabled', true);
 
-function formValid() {
+/* print condition for unvalid input */
+function itemFormValid() {
     var cusID = $("#txtItemCode").val();
     $("#txtItemCode").css('border', '1px solid blue');
     $("#lblItemCode").text("");
@@ -132,7 +216,8 @@ function formValid() {
     }
 }
 
-function checkIfValid() {
+/* check input value valid  */
+function checkIfValidItem() {
     var cusID = $("#txtItemCode").val();
     if (itemCodeRegEx.test(cusID)) {
         $("#txtItemName").focus();
@@ -147,7 +232,7 @@ function checkIfValid() {
                 if (resp) {
                     let res = confirm("Do you really need to add this Item ..?");
                     if (res) {
-                        saveCustomer();
+                        saveItem();
                         clearAll();
                     }
                 } else {
@@ -164,8 +249,8 @@ function checkIfValid() {
     }
 }
 
-function setButton() {
-    let b = formValid();
+function setItemSaveButton() {
+    let b = itemFormValid();
     if (b) {
         $("#btnSaveItem").attr('disabled', false);
     } else {
@@ -174,5 +259,5 @@ function setButton() {
 }
 
 $('#btnSaveItem').click(function () {
-    checkIfValid();
+    checkIfValidItem();
 });
