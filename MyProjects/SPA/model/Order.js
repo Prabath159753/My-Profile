@@ -3,42 +3,46 @@
  * @ since : 0.1.0
  **/
 
-function OrderDTO(orderID,CusID,itemCode,qty,total) {
-    var __orderID=orderID;
-    var __CusID=CusID;
-    var __itemCode=itemCode;
-    var __qty=qty;
-    var __total=total;
+function Order(oID, oDate, cusId, gross, net) {
+    var __orderId = oID;
+    var __orderDate = oDate;
+    var __cusID = cusId;
+    var __grossTotal = gross;
+    var __netTotal = net;
 
-    this.getOrderID=function () {
-        return __orderID;
+    this.setOrderId = function (e) {
+        __orderId = e;
     }
-    this.getCusID=function () {
-        return __CusID;
-    }
-    this.getItemCode=function () {
-        return __itemCode;
-    }
-    this.getQty=function () {
-        return __qty;
-    }
-    this.getTotal=function () {
-        return __total;
+    this.getOrderId  = function () {
+        return __orderId;
     }
 
-    this.setOrderID=function (newOrderID) {
-        __orderID=newOrderID;
+    this.setOrderDate = function (e) {
+        __orderDate = e;
     }
-    this.setCustomerID=function (newCID) {
-        __CusID=newCID;
+    this.getOrderDate = function () {
+        return __orderDate;
     }
-    this.setItemCode=function (newItemCode) {
-        __itemCode=newItemCode;
+
+    this.setOrderCusId = function (e) {
+        __cusID = e;
     }
-    this.setQty=function (newQty) {
-        __qty=newQty;
+    this.getOrderCusId  = function () {
+        return __cusID;
     }
-    this.setTotal=function (newTotal) {
-        __total=newTotal;
+
+    this.setGrossTotal = function (e) {
+        __grossTotal = e;
     }
+    this.getGrossTotal = function () {
+        return __grossTotal;
+    }
+
+    this.setNetTotal = function (e) {
+        __netTotal = e;
+    }
+    this.getNetTotal = function () {
+        return __netTotal;
+    }
+
 }
