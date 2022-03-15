@@ -3,7 +3,6 @@
  * @ since : 0.1.0
  **/
 
-
 /* ------ generate order id ------ */
 function generateOrderId() {
     $("#txtOrderID").val("O-0001");
@@ -11,7 +10,7 @@ function generateOrderId() {
     if(orderDB.length!=0){
         var orderId=orderDB[orderDB.length-1].getOrderId();
         console.log(orderId);
-        var tempId = parseInt(orderId.split("")[2]);
+        var tempId = parseInt(orderId.split("-")[1]);
         // var tempId = parseInt(orderId.substring(1,4))
 
         // let lastCustomerId = orderDB[orderDB.length-1].getOrderId();
@@ -506,7 +505,7 @@ $("#btnPurchase").click(function () {
             $("#cash").val("");
             $("#discount").val("");
 
-            $("#tblOrder tbody").empty();
+
 
             $("#sellQty").css('border', '2px solid transparent');
             $("#itemDiscount").css('border', '2px solid transparent');
@@ -567,7 +566,7 @@ $("#btnNew").click(function () {
 
 
     $("#selectItemCode").val("");
-    $("#txtOrderItemDescription").val("");
+    //$("#txtOrderItemDescription").val("");
     $("#txtOrderItemPrice").val("");
     $("#txtOrderQtyOnHand").val("");
 
@@ -584,6 +583,8 @@ $("#btnNew").click(function () {
     $("#discount").val("");
 
     $("#txtBalance").val("");
+    $("#gross").val("");
+    $("#balance").val("");
 
 
     $("#tblOrder tbody").empty();
@@ -593,6 +594,600 @@ $("#btnNew").click(function () {
     $("#discount").css('border', '2px solid transparent');
     $("#cash").css('border', '2px solid transparent');
 });
+
+
+
+
+
+// /* ------ generate order id ------ */
+// function generateOrderId() {
+//     $("#txtOrderID").val("O-0001");
+//
+//     if(orderDB.length!=0){
+//         var orderId=orderDB[orderDB.length-1].getOrderId();
+//         console.log(orderId);
+//         var tempId = parseInt(orderId.split("")[2]);
+//         // var tempId = parseInt(orderId.substring(1,4))
+//
+//         // let lastCustomerId = orderDB[orderDB.length-1].getOrderId();
+//
+//         // let newCustomerId = parseInt(lastCustomerId.substring(2,6))+1;
+//         // tempId = newCustomerId;
+//         tempId = tempId+1;
+//
+//         if (tempId <= 9){
+//             $("#txtOrderID").val("O-000"+tempId);
+//         }else if (tempId <= 99) {
+//             $("#txtOrderID").val("O-00" + tempId);
+//         }else if (tempId <= 999){
+//             $("#txtOrderID").val("O-0" + tempId);
+//         }else {
+//             $("#txtOrderID").val("O-"+tempId);
+//         }
+//     }else{
+//         $("#txtOrderID").val("O-0001");
+//     }
+// }
+//
+// /*-------------------Customer Sec-----------------------*/
+//
+// function loadCustomerIds() {
+//     $("#selectCusID").empty();
+//     for (var i = 0; i <customerDB.length ; i++) {
+//         $("#selectCusID").append($("<option></option>").attr("value", i).text(customerDB[i].getCId()));
+//     }
+// }
+//
+// $("#selectCusID").click(function () {
+//     for (var i = 0; i < customerDB.length; i++) {
+//         if ($("#selectCusID option:selected").text()==customerDB[i].getCId()){
+//             $("#orderCusName").val(customerDB[i].getName());
+//
+//             $("#orderCusContact").val(customerDB[i].getContact());
+//
+//             $("#orderCusAddress").val(customerDB[i].getAddress());
+//         }
+//     }
+// });
+//
+// /*-------------------Item Sec-----------------------*/
+//
+// function loadItemCodes() {
+//     $("#selectItemCode").empty();
+//     for (var i = 0; i <itemDB.length ; i++) {
+//         $("#selectItemCode").append($("<option></option>").attr("value", i).text(itemDB[i].getCode()));
+//     }
+// }
+//
+// $("#selectItemCode").click(function () {
+//
+//     for (var i = 0; i < itemDB.length; i++) {
+//         if ($("#selectItemCode option:selected").text()==itemDB[i].getCode()){
+//
+//             $("#txtOrderItemDescription").val(itemDB[i].getDescription());
+//             $("#txtOrderQtyOnHand").val(itemDB[i].getQty());
+//             $("#txtOrderItemPrice").val(itemDB[i].getUnitPrice());
+//
+//         }
+//     }
+// });
+//
+// /* ------ oder qty validation ------ */
+//
+// var regExSellQuantity=/^[0-9]{1,20}$/;
+//
+// $("#txtOrderQty").keyup(function (event) {
+//
+//     let sellQty = $("#txtOrderQty").val();
+//     if (regExSellQuantity.test(sellQty)){
+//         $("#txtOrderQty").css('border','1px solid blue');
+//         $("#errorOrderlQty").text("");
+//         if (event.key=="Enter"){
+//             $("#btnAddToTable").focus();
+//         }
+//     }else {
+//         $("#txtOrderQty").css('border','2px solid red');
+//         $("#errorOrderQty").text("Quantity is a required field: Pattern 00");
+//     }
+// });
+//
+// /* ----------------------- Order Table ----------------------- */
+//
+// /* if add new row , qtyOnHand changes */
+// function manageAddQty(qty){
+//     var votevalue = parseInt(qty);
+//     for (var j = 0; j < itemDB.length; j++) {
+//         if ($("#selectItemCode option:selected").text() == itemDB[j].getCode()){
+//             var manageQty=parseInt(itemDB[j].getQty());
+//             manageQty-=votevalue;
+//             itemDB[j].setQty(manageQty);
+//         }
+//     }
+// }
+//
+// /* if add new gross*/
+// var grossAmount=0;
+// function calculateGrossAmount(gross){
+//     grossAmount+=gross;
+//     $("#gross").text(grossAmount);
+//     console.log(grossAmount);
+// }
+//
+// var tblOrderRow;
+// var click="not clicked";
+//
+// $("#btnAddCart").click(function () {
+//     console.log("a");
+//
+//     $("#tblOrder tbody > tr").off("click");
+//     $("#tblOrder tbody").off("click",'#btnDelete');
+//
+//     if($("#errorOrderQty").text()!=""||$("#selectItemCode option:selected").val()==""||
+//         $("#selectItemCode option:selected").text()==""||$("#txtOrderQty").val()==""||$("#orderDate").val()==""){
+//         console.log("b");
+//         $("#btnPurchase").attr('disabled', true);
+//         alert("please enter customer details or item details ....");
+//     }else {
+//
+//         let text = "Do you really want to add to cart this Item?";
+//         $("#btnPurchase").attr('disabled', false);
+//
+//         if (confirm(text) == true) {
+//
+//             let orderId = $("#selectCusID option:selected").text();
+//             let itemCode = $("#selectItemCode option:selected").text();
+//
+//             let itemName = $("#txtOrderItemDescription").val();
+//             let unitPrice = $("#txtOrderItemPrice").val();
+//             var sellQty = $("#txtOrderQty").val();
+//             var gross = sellQty*unitPrice;
+//             var net = gross;
+//
+//             var ifDuplicate=false;
+//             console.log($("#selectCusID option:selected").text());
+//
+//             // if($("#tblOrder tbody tr").length != 0){
+//             //     var firstItem = new Array();
+//             //     firstItem = Array.from(document.querySelectorAll("#perf td:first-child")).map(x => x.innerHTML);
+//
+//             // }
+//
+//             for (var i = 0; i < $("#tblOrder tbody tr").length; i++) {
+//
+//
+//                 // console.log("dddddddddddddddd");
+//
+//                 // var firstItem = new Array();
+//                 // firstItem = Array.from(document.querySelectorAll("#perf td:first-child")).map(x => x.innerHTML);
+//                 // console.log(firstItem);
+//                 // var first = firstItem[0];
+//                 // console.log(first);
+//                 // console.log(Array.from(document.
+//                 // querySelectorAll("#perf td:first-child")).map(x => x.innerHTML));
+//
+//                 // console.log($("#selectCusID option:selected").text());
+//
+//
+//
+//
+//                 // var terf = document.getElementById('#tblOrder');
+//                 // var firstChilds = terf.querySelectorAll("td:first-child");
+//                 // var allName = [];
+//                 // for(i=0; i<$("#tblOrder tbody tr").length; ++i){
+//                 //     allName.push(firstChilds[i].innerHTML);
+//                 // }
+//
+//                 // console.log(allName);
+//
+//
+//                 // var code=$("#tblOrder tbody tr").children(':nth-"child(1)')[1].innerText;
+//                 // console.log(("#tblOrder tbody tr").children(':nth-child(1)')[1].text);
+//
+//                 // if($("#selectItemCode option:selected").text()==firstItem[i]){
+//                 //     ifDuplicate=true;
+//                 //     console.log(("#selectCusID option:selected").text());
+//
+//                 // }
+//
+//                 if($("#selectItemCode option:selected").text()==$("#tblOrder tbody tr").children(':nth-child(1)')[i].innerText){
+//                     ifDuplicate=true;
+//                 }
+//             }
+//
+//             if (ifDuplicate!=true){
+//
+//                 if(parseInt($("#txtOrderQtyOnHand").val()) >= sellQty){
+//
+//                     manageAddQty(sellQty);
+//                     calculateGrossAmount(gross);
+//                     calculateNetAmount(net);
+//
+//                     let raw = `<tr><td> ${itemCode} </td><td> ${itemName} </td><td> ${sellQty} </td><td> ${unitPrice} </td><td> ${net} </td><td> <input id='btnEdit' class='btn btn-success btn-sm' value='Update' style="width: 75px"/> </td><td> <input id='btnDelete' class='btn btn-danger btn-sm' value='Delete' style="width: 75px"/> </td></tr>`;
+//                     $("#tblOrder tbody").append(raw);
+//
+//                 }else if(parseInt($("#txtOrderQtyOnHand").val()) < sellQty){
+//                     alert("Not Enough Quantity");
+//                 }
+//
+//                 $("#txtOrderItemDescription").val("");
+//                 $("#selectItemCode").text()
+//
+//                 $("#txtOrderQty").val("");
+//                 $("#txtOrderItemPrice").val("");
+//                 $("#txtOrderQtyOnHand").val("");
+//
+//                 console.log("x");
+//
+//                 $("#txtOrderQty").css('border', '2px solid transparent');
+//
+//                 $("#tblOrder tbody").on('click','#btnDelete',function () {
+//                     console.log("yyyyy");
+//                     let text = "Are you sure you want to remove this Item from cart?";
+//
+//                     if (confirm(text) == true) {
+//                         tblOrderRow.remove();
+//
+//                         manageReduceQty(tblOrderRow.children(':nth-child(4)').text());
+//                         var preGross=parseInt($(tblOrderRow).children(':nth-child(4)').text())*$("#orderPrice").val();
+//                         deleteGrossAmount(preGross);
+//                         var delNet=parseInt($(tblOrderRow).children(':nth-child(7)').text());
+//                         deleteNetAmount(delNet);
+//
+//                         $("#txtOrderItemDescription").val("");
+//                         $("#selectItemCode").val("");
+//
+//                         $("#txtOrderQty").val("");
+//                         $("#txtOrderItemPrice").val("");
+//                         $("#txtOrderQtyOnHand").val("");
+//
+//                     } else {
+//
+//                     }
+//                 });
+//
+//             }else if (ifDuplicate==true){
+//
+//                 if (click=="clicked"){
+//
+//                     if(parseInt($("#txtOrderQty").val()) >= sellQty){
+//
+//                         manageQty(sellQty,$(tblOrderRow).children(':nth-child(4)').text());
+//                         var previousGross=parseInt($(tblOrderRow).children(':nth-child(4)').text())*unitPrice;
+//                         updateGrossAmount(gross,previousGross);
+//                         updateNetAmount(net,$(tblOrderRow).children(':nth-child(7)').text());
+//
+//                         $(tblOrderRow).children(':nth-child(4)').text(sellQty);
+//                         $(tblOrderRow).children(':nth-child(7)').text(net);
+//
+//                     }else if(parseInt($("#txtOrderQty").val()) < sellQty){
+//                         alert("Not Enough Quantity");
+//                     }
+//
+//                     $("#txtOrderItemDescription").val("");
+//                     $("#selectItemCode").val("");
+//
+//                     $("#txtOrderQty").val("");
+//
+//                     $("#txtOrderItemPrice").val("");
+//                     $("#txtOrderQtyOnHand").val("");
+//
+//
+//
+//                     $("#txtOrderQtyOnHand").css('border', '2px solid transparent');
+//
+//                 }else if (click=="not clicked"){
+//                     alert("Please Select A Row.");
+//                 }
+//             }
+//
+//         } else {
+//
+//         }
+//
+//     }
+//
+//     $("#tblOrder tbody > tr").click(function () {
+//         tblOrderRow=$(this);
+//         click="clicked";
+//
+//         var code=tblOrderRow.children(':nth-child(1)').text();
+//         var trim1 = $.trim(code);
+//         var iName=tblOrderRow.children(':nth-child(2)').text();
+//         var trim2 = $.trim(iName);
+//
+//         var sellqty=tblOrderRow.children(':nth-child(3)').text();
+//         var trim3 = $.trim(sellqty);
+//
+//         var sellqty=tblOrderRow.children(':nth-child(4)').text();
+//         var trim4 = $.trim(sellqty);
+//         var price=tblOrderRow.children(':nth-child(5)').text();
+//         var trim5 = $.trim(price);
+//         var discount=tblOrderRow.children(':nth-child(6)').text();
+//         var trim6 = $.trim(discount);
+//
+//         $("#orderItemCode").val(trim1);
+//         $("#orderKind").val(trim2);
+//         $("#orderItemName").val(trim3);
+//         $("#sellQty").val(trim4);
+//         $("#orderPrice").val(trim5);
+//         $("#itemDiscount").val(trim6);
+//
+//         for (var i = 0; i < itemDB.length; i++) {
+//             if ($("#orderItemCode").val() == itemDB[i].getCode()) {
+//                 $("#orderQty").val(itemDB[i].getQty());
+//             }
+//         }
+//     });
+//
+// });
+//
+//
+//
+// /* if add new net*/
+// var netAmount=0;
+// function calculateNetAmount(net){
+//     netAmount+=net;
+//     $("#net").val(netAmount);
+// }
+//
+// /* if delete a row , qtyOnHand changes */
+// function manageReduceQty(qty){
+//     var votevalue = parseInt(qty);
+//     for (var j = 0; j < itemDB.length; j++) {
+//         if ($("#orderItemCode").val() == itemDB[j].getCode()){
+//             var manageQty=parseInt(itemDB[j].getQty());
+//             manageQty+=votevalue;
+//             itemDB[j].setQty(manageQty);
+//         }
+//     }
+// }
+//
+// /* if delete gross*/
+// function deleteGrossAmount(gross){
+//     grossAmount-=gross;
+//     $("#gross").val(grossAmount);
+// }
+//
+// /* if delete net*/
+// function deleteNetAmount(net){
+//     netAmount-=net;
+//     $("#net").val(netAmount);
+// }
+//
+// /* if update previous row , qtyOnHand changes */
+// function manageQty(qty,previousQty){
+//     var qty = parseInt(qty);
+//     var previousQty = parseInt(previousQty);
+//     for (var j = 0; j < itemDB.length; j++) {
+//         if ($("#orderItemCode").val() == itemDB[j].getCode()){
+//             var manageQty=parseInt(itemDB[j].getQty());
+//             manageQty+=previousQty;
+//             manageQty-=qty;
+//             itemDB[j].setQty(manageQty);
+//         }
+//     }
+// }
+//
+// /* if update new gross*/
+// function updateGrossAmount(gross,previousGross){
+//     grossAmount-=previousGross;
+//     grossAmount+=gross;
+//     $("#gross").val(grossAmount);
+// }
+//
+// /* if update new net*/
+// function updateNetAmount(net,previousNet){
+//     netAmount-=previousNet;
+//     netAmount+=net;
+//     $("#net").val(netAmount);
+// }
+//
+//
+// /* if update new net*/
+// function getSubAmount(){
+//     let amountOfNet = $("#net").val();
+//     let discount = $("#discount").val();
+//     var rest=amountOfNet-(amountOfNet*discount/100);
+//     $("#net").val(netAmount);
+// }
+//
+//
+// /*-------------------Final Total----------------------*/
+//
+// var regExCash=/^[0-9]{1,10}$/;
+// var regExFinalDiscount=/^[0-9]{1,2}$/;
+//
+// $("#cash").keyup(function (event) {
+//
+//     let cash = $("#cash").val();
+//     if (regExCash.test(cash)){
+//         $("#cash").css('border','1px solid blue');
+//         $("#errorCash").text("");
+//         if (event.key=="Enter") {
+//             $("#discount").focus();
+//         }
+//     }else {
+//         $("#cash").css('border','1px solid red');
+//         $("#errorCash").text("Cash is a required field: Pattern 00.00");
+//     }
+// });
+//
+// $("#discount").keyup(function () {
+//
+//     let discount = $("#discount").val();
+//     if (regExFinalDiscount.test(discount)){
+//         $("#discount").css('border','1px solid blue');
+//         $("#errorFinalDiscount").text("");
+//     }else {
+//         $("#discount").css('border','1px solid red');
+//         $("#errorFinalDiscount").text("Discount is a required field: Pattern 0");
+//     }
+//
+// });
+//
+// $("#btnPurchase").click(function () {
+//
+//
+//
+//     let text = "Do you really want to place order?";
+//
+//     if (confirm(text) == true) {
+//
+//         getSubAmount();
+//
+//         let amountOfGross = $("#gross").val();
+//         let amountOfNet = $("#net").val();
+//         let orderDate = $("#orderDate").val();
+//         let cusIds = $("#selectCusID option:selected").text();
+//         let orderId = $("#txtOrderID").val();
+//         let cash = $("#cash").val();
+//         let discount = $("#discount").val();
+//
+//         var order = new Order(
+//             orderId,
+//             orderDate,
+//             cusIds,
+//             amountOfGross,
+//             amountOfNet
+//         );
+//
+//         var ifDuplicate = false;
+//
+//         for (var j = 0; j < orderDB.length; j++) {
+//             if (orderId == orderDB[j].getOrderId()) {
+//                 ifDuplicate = true;
+//             }
+//         }
+//
+//         if (ifDuplicate == false) {
+//
+//             orderDB.push(order);
+//
+//             for (var i = 0; i < $("#tblOrder tbody tr").length; i++) {
+//                 var orderDetails = new OrderDetails(
+//                     orderId,
+//                     $("#tblOrder tbody tr").children(':nth-child(1)')[i].innerText,
+//                     $("#tblOrder tbody tr").children(':nth-child(2)')[i].innerText,
+//                     $("#tblOrder tbody tr").children(':nth-child(3)')[i].innerText,
+//                     $("#tblOrder tbody tr").children(':nth-child(4)')[i].innerText,
+//                     $("#tblOrder tbody tr").children(':nth-child(5)')[i].innerText
+//
+//
+//                 )
+//                 orderDetailsDB.push(orderDetails);
+//             }
+//
+//             var rest=amountOfNet-(amountOfNet*discount/100);
+//             var balance=cash-rest;
+//             $("#balance").val(balance);
+//
+//             $("#btnAddCart").attr('disabled',false);
+//
+//             $("#orderItemName").val("");
+//             $("#orderItemCode").val("");
+//             $("#orderKind").val("");
+//             $("#orderQty").val("");
+//             $("#orderPrice").val("");
+//             $("#sellQty").val("");
+//             $("#itemDiscount").val("");
+//             $("#orderCusName").val("");
+//             $("#orderCusId").val("");
+//             $("#orderCusAddress").val("");
+//             $("#orderCusNIC").val("");
+//             $("#orderCusContact").val("");
+//             $("#searchOrder").val("");
+//             $("#gross").val("");
+//             $("#net").val("");
+//             $("#cash").val("");
+//             $("#discount").val("");
+//
+//             $("#tblOrder tbody").empty();
+//
+//             $("#sellQty").css('border', '2px solid transparent');
+//             $("#itemDiscount").css('border', '2px solid transparent');
+//             $("#discount").css('border', '2px solid transparent');
+//             $("#cash").css('border', '2px solid transparent');
+//
+//         } else if (ifDuplicate == true) {
+//             alert("Something Wrong.");
+//         }
+//
+//     }else if (confirm(text) == false){
+//         alert("error");
+//
+//         for (var i = 0; i < $("#tblOrder tbody tr").length; i++) {
+//             var code=$("#tblOrder tbody tr").children(':nth-child(1)')[i].innerText;
+//             var qty=$("#tblOrder tbody tr").children(':nth-child(4)')[i].innerText;
+//             ifRefusePurchase(code,qty);
+//         }
+//
+//         generateOrderId();
+//         netAmount = 0;
+//         grossAmount = 0;
+//
+//         $("#orderItemName").val("");
+//         $("#orderItemCode").val("");
+//         $("#orderKind").val("");
+//         $("#orderQty").val("");
+//         $("#orderPrice").val("");
+//         $("#sellQty").val("");
+//         $("#itemDiscount").val("");
+//         $("#orderCusName").val("");
+//         $("#orderCusId").val("");
+//         $("#orderCusAddress").val("");
+//         $("#orderCusNIC").val("");
+//         $("#orderCusContact").val("");
+//         $("#searchOrder").val("");
+//         $("#gross").val("");
+//         $("#net").val("");
+//         $("#cash").val("");
+//         $("#discount").val("");
+//         $("#balance").val("");
+//         $("#tblOrder tbody").empty();
+//
+//         $("#sellQty").css('border', '2px solid transparent');
+//         $("#itemDiscount").css('border', '2px solid transparent');
+//         $("#discount").css('border', '2px solid transparent');
+//         $("#cash").css('border', '2px solid transparent');
+//
+//     }
+//
+//
+// });
+//
+// $("#btnNew").click(function () {
+//     netAmount = 0;
+//     grossAmount = 0;
+//     generateOrderId();
+//
+//
+//     $("#selectItemCode").val("");
+//     $("#txtOrderItemDescription").val("");
+//     $("#txtOrderItemPrice").val("");
+//     $("#txtOrderQtyOnHand").val("");
+//
+//     $("#selectCusID").val("");
+//     $("#orderCusName").val("");
+//     $("#orderCusContact").val("");
+//     $("#orderCusAddress").val("");
+//
+//
+//     $("#txtOrderQty").val("");
+//     $("#gross").val("");
+//     $("#net").val("");
+//     $("#cash").val("");
+//     $("#discount").val("");
+//
+//     $("#txtBalance").val("");
+//
+//
+//     $("#tblOrder tbody").empty();
+//
+//     $("#sellQty").css('border', '2px solid transparent');
+//
+//     $("#discount").css('border', '2px solid transparent');
+//     $("#cash").css('border', '2px solid transparent');
+// });
 
 
 // /* ------ generate order id ------ */
